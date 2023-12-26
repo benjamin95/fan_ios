@@ -11,7 +11,7 @@ import SwiftUI
 struct fanv3App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environment(\.locale, .init(identifier: "fr_FR")) 
         }
     }
 }
