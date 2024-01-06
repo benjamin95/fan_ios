@@ -64,7 +64,8 @@ struct TacheListView: View {
                 viewModel.getTaches()
             }
         }
-        .navigationTitle("Liste des taches")
+        .navigationTitle("Réinterventions")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

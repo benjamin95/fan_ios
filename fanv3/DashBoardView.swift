@@ -58,7 +58,7 @@ struct DashBoardView: View {
                 Spacer()
             }
             .padding()
-            .navigationTitle("Dashboard")
+            .navigationTitle("Planning")
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack {
