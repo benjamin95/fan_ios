@@ -61,6 +61,9 @@
 		43BC31962B3B4D2600A14E6F /* InterventionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC31732B3B4D2600A14E6F /* InterventionModel.swift */; };
 		43BC31972B3B4D2600A14E6F /* InterventionAjoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC31752B3B4D2600A14E6F /* InterventionAjoutView.swift */; };
 		43BC31982B3B4D2600A14E6F /* InterventionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC31762B3B4D2600A14E6F /* InterventionListView.swift */; };
+		43EE9FA72B49B00C003823A1 /* DashboardTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EE9FA62B49B00C003823A1 /* DashboardTabView.swift */; };
+		43EE9FA92B49BCFA003823A1 /* CountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EE9FA82B49BCFA003823A1 /* CountManager.swift */; };
+		43EE9FAB2B49BDD1003823A1 /* CountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EE9FAA2B49BDD1003823A1 /* CountModel.swift */; };
 		43F928752B3B6DD500668D6A /* PonctuelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F928742B3B6DD500668D6A /* PonctuelModel.swift */; };
 		43F928772B3B6EC200668D6A /* PonctuelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F928762B3B6EC200668D6A /* PonctuelListView.swift */; };
 		43F928792B3B6EF800668D6A /* PonctuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F928782B3B6EF800668D6A /* PonctuelViewModel.swift */; };
@@ -121,6 +124,9 @@
 		43BC31732B3B4D2600A14E6F /* InterventionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterventionModel.swift; sourceTree = "<group>"; };
 		43BC31752B3B4D2600A14E6F /* InterventionAjoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterventionAjoutView.swift; sourceTree = "<group>"; };
 		43BC31762B3B4D2600A14E6F /* InterventionListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterventionListView.swift; sourceTree = "<group>"; };
+		43EE9FA62B49B00C003823A1 /* DashboardTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabView.swift; sourceTree = "<group>"; };
+		43EE9FA82B49BCFA003823A1 /* CountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountManager.swift; sourceTree = "<group>"; };
+		43EE9FAA2B49BDD1003823A1 /* CountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountModel.swift; sourceTree = "<group>"; };
 		43F928742B3B6DD500668D6A /* PonctuelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PonctuelModel.swift; sourceTree = "<group>"; };
 		43F928762B3B6EC200668D6A /* PonctuelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PonctuelListView.swift; sourceTree = "<group>"; };
 		43F928782B3B6EF800668D6A /* PonctuelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PonctuelViewModel.swift; sourceTree = "<group>"; };
@@ -341,6 +347,8 @@
 			children = (
 				43BC315B2B3B4D2600A14E6F /* Date.swift */,
 				432B6FAA2B3DDA9800185225 /* CercleInitial.swift */,
+				43EE9FA82B49BCFA003823A1 /* CountManager.swift */,
+				43EE9FAA2B49BDD1003823A1 /* CountModel.swift */,
 			);
 			path = Utilitaires;
 			sourceTree = "<group>";
@@ -355,6 +363,7 @@
 				43BC31602B3B4D2600A14E6F /* DashboardItemCarte.swift */,
 				43BC31612B3B4D2600A14E6F /* DashboardInterventionsMois.swift */,
 				43BC31622B3B4D2600A14E6F /* DashboardItemRetard.swift */,
+				43EE9FA62B49B00C003823A1 /* DashboardTabView.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -573,6 +582,7 @@
 				43BC31972B3B4D2600A14E6F /* InterventionAjoutView.swift in Sources */,
 				432B6FAD2B3DE97E00185225 /* DashboardItemPonctuels.swift in Sources */,
 				43BC31302B3B4A6D00A14E6F /* JWT.swift in Sources */,
+				43EE9FA92B49BCFA003823A1 /* CountManager.swift in Sources */,
 				43BC31882B3B4D2600A14E6F /* Date.swift in Sources */,
 				43BC318F2B3B4D2600A14E6F /* TacheViewModel.swift in Sources */,
 				43BC313B2B3B4C9D00A14E6F /* Logged.swift in Sources */,
@@ -609,6 +619,7 @@
 				43BC31952B3B4D2600A14E6F /* InterventionManager.swift in Sources */,
 				432B6FA92B3DD85D00185225 /* PonctuelDetail.swift in Sources */,
 				43BC31332B3B4A6D00A14E6F /* JwtTokenModel.swift in Sources */,
+				43EE9FA72B49B00C003823A1 /* DashboardTabView.swift in Sources */,
 				43BC31852B3B4D2600A14E6F /* CarteView.swift in Sources */,
 				43BC31822B3B4D2600A14E6F /* CarteClientModel.swift in Sources */,
 				43BC317A2B3B4D2600A14E6F /* AlertItem.swift in Sources */,
@@ -621,6 +632,7 @@
 				43BC31212B3B4A2200A14E6F /* ContentView.swift in Sources */,
 				43BC31962B3B4D2600A14E6F /* InterventionModel.swift in Sources */,
 				43BC317B2B3B4D2600A14E6F /* ClientModel.swift in Sources */,
+				43EE9FAB2B49BDD1003823A1 /* CountModel.swift in Sources */,
 				43BC31202B3B4A2200A14E6F /* RootView.swift in Sources */,
 				43BC31902B3B4D2600A14E6F /* TacheManager.swift in Sources */,
 			);

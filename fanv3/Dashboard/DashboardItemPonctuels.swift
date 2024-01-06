@@ -20,7 +20,7 @@ struct DashboardItemPonctuels: View {
                 VStack(alignment: .leading, spacing: 22) {
                     HStack{
                         
-                        viewModel.ponctuels.count != 0 ? Text("\(viewModel.ponctuels.count) Ponctuel en cours").foregroundColor(.white).fontWeight(.bold) : Text("Pas de ponctuel en cours").foregroundColor(Color.green)
+                        viewModel.ponctuels.count != 0 ? Text("\(viewModel.ponctuels.count) Hors contrat en cours").foregroundColor(.white).fontWeight(.bold) : Text("Pas de hors contrat en cours").foregroundColor(Color.green)
                         Spacer()
                         Image(systemName: "list.bullet.clipboard.fill")
                             .foregroundColor(Color.green)

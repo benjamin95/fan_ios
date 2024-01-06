@@ -42,7 +42,7 @@ struct PonctuelListView: View {
             .task {
                 viewModel.getTachesNonFaites()
             }
-            .navigationTitle("Liste des ponctuels")
+            .navigationTitle("Hors contrat")
             .navigationBarTitleDisplayMode(.inline)
         }
         

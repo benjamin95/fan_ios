@@ -20,7 +20,7 @@ struct DashboardItemTaches: View {
                 VStack(alignment: .leading, spacing: 22) {
                     HStack{
                         
-                        viewModel.taches.count != 0 ? Text("\(viewModel.taches.count) Tâche en cours").foregroundColor(.white).fontWeight(.bold) : Text("Pas de tâches en cours").foregroundColor(Color.green)
+                        viewModel.taches.count != 0 ? Text("\(viewModel.taches.count) Réintervention en cours").foregroundColor(.white).fontWeight(.bold) : Text("Pas de réintervention en cours").foregroundColor(Color.green)
                         Spacer()
                         Image(systemName: "list.bullet.clipboard.fill")
                             .foregroundColor(Color.blue)
