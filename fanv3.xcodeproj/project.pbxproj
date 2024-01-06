@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		432B6FA92B3DD85D00185225 /* PonctuelDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B6FA82B3DD85D00185225 /* PonctuelDetail.swift */; };
+		432B6FAB2B3DDA9800185225 /* CercleInitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B6FAA2B3DDA9800185225 /* CercleInitial.swift */; };
+		432B6FAD2B3DE97E00185225 /* DashboardItemPonctuels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B6FAC2B3DE97E00185225 /* DashboardItemPonctuels.swift */; };
 		43BC310C2B3B42E300A14E6F /* fanv3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC310B2B3B42E300A14E6F /* fanv3App.swift */; };
 		43BC31102B3B42E400A14E6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43BC310F2B3B42E400A14E6F /* Assets.xcassets */; };
 		43BC31132B3B42E400A14E6F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43BC31122B3B42E400A14E6F /* Preview Assets.xcassets */; };
@@ -58,9 +61,16 @@
 		43BC31962B3B4D2600A14E6F /* InterventionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC31732B3B4D2600A14E6F /* InterventionModel.swift */; };
 		43BC31972B3B4D2600A14E6F /* InterventionAjoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC31752B3B4D2600A14E6F /* InterventionAjoutView.swift */; };
 		43BC31982B3B4D2600A14E6F /* InterventionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC31762B3B4D2600A14E6F /* InterventionListView.swift */; };
+		43F928752B3B6DD500668D6A /* PonctuelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F928742B3B6DD500668D6A /* PonctuelModel.swift */; };
+		43F928772B3B6EC200668D6A /* PonctuelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F928762B3B6EC200668D6A /* PonctuelListView.swift */; };
+		43F928792B3B6EF800668D6A /* PonctuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F928782B3B6EF800668D6A /* PonctuelViewModel.swift */; };
+		43F9287B2B3B6F5B00668D6A /* PonctuelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F9287A2B3B6F5B00668D6A /* PonctuelManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		432B6FA82B3DD85D00185225 /* PonctuelDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PonctuelDetail.swift; sourceTree = "<group>"; };
+		432B6FAA2B3DDA9800185225 /* CercleInitial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CercleInitial.swift; sourceTree = "<group>"; };
+		432B6FAC2B3DE97E00185225 /* DashboardItemPonctuels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardItemPonctuels.swift; sourceTree = "<group>"; };
 		43BC31082B3B42E300A14E6F /* fanv3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fanv3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43BC310B2B3B42E300A14E6F /* fanv3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fanv3App.swift; sourceTree = "<group>"; };
 		43BC310F2B3B42E400A14E6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,6 +121,10 @@
 		43BC31732B3B4D2600A14E6F /* InterventionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterventionModel.swift; sourceTree = "<group>"; };
 		43BC31752B3B4D2600A14E6F /* InterventionAjoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterventionAjoutView.swift; sourceTree = "<group>"; };
 		43BC31762B3B4D2600A14E6F /* InterventionListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterventionListView.swift; sourceTree = "<group>"; };
+		43F928742B3B6DD500668D6A /* PonctuelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PonctuelModel.swift; sourceTree = "<group>"; };
+		43F928762B3B6EC200668D6A /* PonctuelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PonctuelListView.swift; sourceTree = "<group>"; };
+		43F928782B3B6EF800668D6A /* PonctuelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PonctuelViewModel.swift; sourceTree = "<group>"; };
+		43F9287A2B3B6F5B00668D6A /* PonctuelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PonctuelManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +159,7 @@
 		43BC310A2B3B42E300A14E6F /* fanv3 */ = {
 			isa = PBXGroup;
 			children = (
+				43F9286F2B3B6CBE00668D6A /* Ponctuel */,
 				43BC314E2B3B4D2600A14E6F /* Carte */,
 				43BC313E2B3B4D2600A14E6F /* Client */,
 				43BC315C2B3B4D2600A14E6F /* Dashboard */,
@@ -325,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				43BC315B2B3B4D2600A14E6F /* Date.swift */,
+				432B6FAA2B3DDA9800185225 /* CercleInitial.swift */,
 			);
 			path = Utilitaires;
 			sourceTree = "<group>";
@@ -334,6 +350,7 @@
 			children = (
 				43BC315D2B3B4D2600A14E6F /* DashboardItemAFaire.swift */,
 				43BC315E2B3B4D2600A14E6F /* DashboardItemTaches.swift */,
+				432B6FAC2B3DE97E00185225 /* DashboardItemPonctuels.swift */,
 				43BC315F2B3B4D2600A14E6F /* DashboardItemClients.swift */,
 				43BC31602B3B4D2600A14E6F /* DashboardItemCarte.swift */,
 				43BC31612B3B4D2600A14E6F /* DashboardInterventionsMois.swift */,
@@ -430,6 +447,50 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		43F9286F2B3B6CBE00668D6A /* Ponctuel */ = {
+			isa = PBXGroup;
+			children = (
+				43F928732B3B6DB800668D6A /* ViewModel */,
+				43F928722B3B6DA400668D6A /* Utilitaires */,
+				43F928712B3B6D9F00668D6A /* View */,
+				43F928702B3B6D9800668D6A /* Model */,
+			);
+			path = Ponctuel;
+			sourceTree = "<group>";
+		};
+		43F928702B3B6D9800668D6A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				43F928742B3B6DD500668D6A /* PonctuelModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		43F928712B3B6D9F00668D6A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				43F928762B3B6EC200668D6A /* PonctuelListView.swift */,
+				432B6FA82B3DD85D00185225 /* PonctuelDetail.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		43F928722B3B6DA400668D6A /* Utilitaires */ = {
+			isa = PBXGroup;
+			children = (
+				43F9287A2B3B6F5B00668D6A /* PonctuelManager.swift */,
+			);
+			path = Utilitaires;
+			sourceTree = "<group>";
+		};
+		43F928732B3B6DB800668D6A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				43F928782B3B6EF800668D6A /* PonctuelViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -510,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43BC31972B3B4D2600A14E6F /* InterventionAjoutView.swift in Sources */,
+				432B6FAD2B3DE97E00185225 /* DashboardItemPonctuels.swift in Sources */,
 				43BC31302B3B4A6D00A14E6F /* JWT.swift in Sources */,
 				43BC31882B3B4D2600A14E6F /* Date.swift in Sources */,
 				43BC318F2B3B4D2600A14E6F /* TacheViewModel.swift in Sources */,
@@ -523,23 +585,29 @@
 				43BC31892B3B4D2600A14E6F /* DashboardItemAFaire.swift in Sources */,
 				43BC31342B3B4A6D00A14E6F /* LoginResponse.swift in Sources */,
 				43BC31932B3B4D2600A14E6F /* TacheTabView.swift in Sources */,
+				432B6FAB2B3DDA9800185225 /* CercleInitial.swift in Sources */,
 				43BC31942B3B4D2600A14E6F /* InterventionViewModel.swift in Sources */,
 				43BC31912B3B4D2600A14E6F /* TacheModel.swift in Sources */,
 				43BC31772B3B4D2600A14E6F /* ClientViewModel.swift in Sources */,
 				43BC31322B3B4A6D00A14E6F /* TokenRequest.swift in Sources */,
+				43F928772B3B6EC200668D6A /* PonctuelListView.swift in Sources */,
 				43BC310C2B3B42E300A14E6F /* fanv3App.swift in Sources */,
 				43BC318D2B3B4D2600A14E6F /* DashboardInterventionsMois.swift in Sources */,
 				43BC31792B3B4D2600A14E6F /* ClientManager.swift in Sources */,
 				43BC31922B3B4D2600A14E6F /* TacheListView.swift in Sources */,
+				43F9287B2B3B6F5B00668D6A /* PonctuelManager.swift in Sources */,
+				43F928792B3B6EF800668D6A /* PonctuelViewModel.swift in Sources */,
 				43BC318C2B3B4D2600A14E6F /* DashboardItemCarte.swift in Sources */,
 				43BC318E2B3B4D2600A14E6F /* DashboardItemRetard.swift in Sources */,
 				43BC31782B3B4D2600A14E6F /* ApiError.swift in Sources */,
 				43BC318B2B3B4D2600A14E6F /* DashboardItemClients.swift in Sources */,
+				43F928752B3B6DD500668D6A /* PonctuelModel.swift in Sources */,
 				43BC317E2B3B4D2600A14E6F /* ClientListAFaire.swift in Sources */,
 				43BC31312B3B4A6D00A14E6F /* LoginRequest.swift in Sources */,
 				43BC317D2B3B4D2600A14E6F /* ClientDetail.swift in Sources */,
 				43BC31982B3B4D2600A14E6F /* InterventionListView.swift in Sources */,
 				43BC31952B3B4D2600A14E6F /* InterventionManager.swift in Sources */,
+				432B6FA92B3DD85D00185225 /* PonctuelDetail.swift in Sources */,
 				43BC31332B3B4A6D00A14E6F /* JwtTokenModel.swift in Sources */,
 				43BC31852B3B4D2600A14E6F /* CarteView.swift in Sources */,
 				43BC31822B3B4D2600A14E6F /* CarteClientModel.swift in Sources */,

@@ -39,6 +39,13 @@ struct DashBoardView: View {
                     }
                 }
                 HStack(spacing: 15){
+                    NavigationLink {
+                        PonctuelListView()
+                    } label: {
+                        DashboardItemPonctuels()
+                    }
+                }
+                HStack(spacing: 15){
                     DashboardInterventionsMois()
                 }
                 HStack(spacing: 15){
