@@ -21,7 +21,7 @@ struct ClientListRetard: View {
                 List(filteredClients) { client in
                     VStack(alignment: .leading) {
                         NavigationLink {
-                            ClientDetail(client: client)
+                            ClientDetail2(client: client)
                         } label: {
                             Text(client.nom ?? "Inconnu")
                         }

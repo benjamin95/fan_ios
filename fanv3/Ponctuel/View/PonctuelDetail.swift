@@ -46,7 +46,7 @@ struct PonctuelDetail: View {
                 }
             }
         }
-        .navigationTitle(ponctuel.nom ?? "Pas de nom lol")
+        .navigationTitle(ponctuel.nom ?? "Pas de nom")
     }
 }
 

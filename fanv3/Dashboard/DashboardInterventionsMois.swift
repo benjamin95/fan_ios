@@ -42,6 +42,7 @@ struct DashboardInterventionsMois: View {
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MMMM YYYY"
+            dateFormatter.locale = Locale(identifier: "fr_FR")
             moisEnCours = dateFormatter.string(from: currentDate)
             
         }
