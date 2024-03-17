@@ -21,9 +21,17 @@ struct TacheListView: View {
             VStack {
                 List (viewModel.taches) { tache in
                     VStack(alignment: .leading, spacing: 10) {
+                        
+                        
+                        
+                        
                         HStack {
-                            Text(tache.client!.nom!)
-                            Spacer()
+                            NavigationLink {
+                                ClientDetail2(client: tache.client!)
+                            } label: {
+                                Text(tache.client!.nom ?? "Inconnu")
+                            }
+                            
                             tache.fait! ? Text("Fait le \(formatDateInFrench(dateString: tache.faitLe ?? "" ) ?? "Pas de date") ") : Text("")
                         }
                         Label {
