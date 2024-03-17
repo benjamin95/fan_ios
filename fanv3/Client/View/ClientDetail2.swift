@@ -8,47 +8,13 @@
 import SwiftUI
 import MapKit
 
-extension CLLocationCoordinate2D {
-  //static let towerBridge = CLLocationCoordinate2D(latitude: 51.5055, longitude: -0.075406)
-  static let boe = CLLocationCoordinate2D(latitude: 51.5142, longitude: -0.0885)
-  static let hydepark = CLLocationCoordinate2D(latitude: 51.508611, longitude: -0.163611)
-  static let kingsCross = CLLocationCoordinate2D(latitude: 51.5309, longitude: -0.1233)
-}
-
-func convertStringToDouble(_ inputString: String) -> Double? {
-    // Utilisez la fonction Double() pour tenter de convertir la chaîne en Double
-    if let convertedValue = Double(inputString) {
-        return convertedValue
-    } else {
-        // La conversion a échoué, retourne nil (optionnel)
-        return nil
-    }
-}
-
-func getRegion(coordinate: CLLocationCoordinate2D) -> MKCoordinateRegion {
-    return MKCoordinateRegion(
-        center: coordinate, // Coordonnées de la Tour Eiffel
-        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05) // Ajustez ces valeurs pour le niveau de zoom
-    )
-}
 
 struct ClientDetail2: View {
     
     var client: Client
     @State private var isSheetPresented = false
-    @State private var mapCamPos: MapCameraPosition = .automatic
-//    @State private var region = MKCoordinateRegion(
-//            center: CLLocationCoordinate2D(latitude: 48.8588443, longitude: 2.2943506), // Coordonnées de la Tour Eiffel
-//            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05) // Ajustez ces valeurs pour le niveau de zoom
-//        )
-    
-    private var region: MKCoordinateRegion {
-            MKCoordinateRegion(
-                center: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868),
-                span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
-            )
-        }
-    
+    @State private var alertMessage = ""
+
     func getRegion(coord: CLLocationCoordinate2D) -> MKCoordinateRegion {
         return MKCoordinateRegion(
             center: coord,
@@ -83,6 +49,39 @@ struct ClientDetail2: View {
                 
                 
             }
+            HStack(spacing:24) {
+                
+                
+                Button {
+                    openInWaze(latitude: convertStringToDouble(client.lat!)!, longitude: convertStringToDouble(client.lng!)!)
+                } label: {
+                    Text("Ouvrir dans Waze")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(width: 170, height: 48)
+                        .background(.blue)
+                        .cornerRadius(12)
+                }
+                
+                Button(action: {
+                    callClient(phoneNumber: client.telFixe!)
+                        }) {
+                            HStack {
+                                Image(systemName: "phone.fill") // Icône de téléphone
+                                    .foregroundColor(.white) // Couleur de l'icône
+
+                                Text("Appeler le client")
+                                    .foregroundColor(.white)
+                                    .font(.headline)
+                            }
+                            .frame(width: 170, height: 48)
+                            .background(Color.green)
+                            .cornerRadius(12)
+                        }
+                    
+
+            }
+            .padding()
         }
         .navigationTitle(client.nom ?? "Pas de nom")
         .navigationBarTitleDisplayMode(.inline)
@@ -103,6 +102,8 @@ struct ClientDetail2: View {
         }
     }
 }
+
+
 
 #Preview {
     

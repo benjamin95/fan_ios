@@ -37,7 +37,7 @@ class CarteViewModel: ObservableObject {
     private func updateMapRegion(location: Location) {
         DispatchQueue.main.async {
             withAnimation(.easeInOut){
-                self.self.self.mapRegion = MKCoordinateRegion(
+                self.mapRegion = MKCoordinateRegion(
                     center: location.coordinates,
                     span: self.mapSpan)
             }
@@ -82,7 +82,7 @@ class CarteViewModel: ObservableObject {
     }
     func getClients()  {
         
-        ClientManager.shared.fetchClients() { [self] result in
+        ClientManager.shared.fetchClientsAFaire() { [self] result in
             
             DispatchQueue.main.async {
                 switch result {

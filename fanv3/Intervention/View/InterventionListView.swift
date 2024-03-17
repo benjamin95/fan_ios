@@ -19,10 +19,12 @@ struct InterventionListView: View {
                 List(viewModel.interventions) { intervention in
                     VStack(alignment: .leading) {
                         NavigationLink {
-                            //
+                            InterventionDetailView(intervention: intervention)
                         } label: {
                             Text(convertStringToDate(intervention.date!, format: "yyyy-MM-dd")!, style: .date)
                                 .font(.subheadline)
+                            Text(intervention.note!)
+                            Text(String(intervention.client!))
                         }
                     }
                 }
@@ -32,7 +34,7 @@ struct InterventionListView: View {
                 viewModel.getInterventionsParMois()
             }
             
-            .navigationTitle("Liste Des \(viewModel.interventions.count) Interventions")
+            .navigationTitle("\(viewModel.interventions.count) Interventions ce mois")
             
             .navigationBarTitleDisplayMode(.inline)
             .alert(isPresented: $viewModel.showAlert) {

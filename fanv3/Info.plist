@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>waze</string>
+	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Demnde de geolocation</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Test app</string>
+	<key>NSLocationAlwaysAndWhenInUsageDescription</key>
+	<string>Test app</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Test App</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>test app</string>
+</dict>
+</plist>

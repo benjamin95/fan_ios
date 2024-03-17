@@ -20,13 +20,14 @@ struct InterventionAjoutView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @Binding var isPresented: Bool
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationStack {
             Form {
                 Section(header: Text("Détails de l'intervention")) {
                     DatePicker("Date", selection: $date, displayedComponents: .date)
-                        .datePickerStyle(.graphical)
+                        .datePickerStyle(.automatic)
                     TextEditor(text: $note).frame(height: 100)
                     Picker(selection: $typeInterventionIndex, label: Text("Type Intervention")) {
                         ForEach(0 ..< typeInterventionOptions.count, id: \.self) {
@@ -45,25 +46,23 @@ struct InterventionAjoutView: View {
                     let intervention:Intervention = Intervention(date: formattedDate, note: note, typeIntervention: typeInterventionOptions[typeInterventionIndex], technicien: Int(userId!), client:  client.id, id: 1)
                     viewModel.ajoutIntervention(intervention: intervention)
                     self.isPresented = viewModel.isPresented
-                    //print(intervention)
                     
                 }
                 ) {
                     HStack {
                         Spacer()
-                        Image(systemName: "plus")
-                            .font(.title)
-                            .foregroundColor(.white)
+                        Text("Valider l'intervention")
                         Spacer()
                     }
                 }
                 .padding(.horizontal)
             }
-            .buttonStyle(.bordered)
+            .buttonStyle(.borderedProminent)
+            
             
             
             .alert(isPresented: $showAlert) {
-                Alert(title: Text("Erreur"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+                Alert(title: Text("Succés"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
             }
             .navigationTitle("Nouvelle intervention")
         }

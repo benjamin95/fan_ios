@@ -46,11 +46,16 @@ struct DashBoardView: View {
                     }
                 }
                 HStack(spacing: 15){
-                    DashboardInterventionsMois()
+                    NavigationLink {
+                        InterventionListView()
+                    } label: {
+                        DashboardInterventionsMois()
+                    }
+                    
                 }
                 HStack(spacing: 15){
                     NavigationLink {
-                        CarteView()
+                        CarteViewAfaire()
                     } label: {
                         DashboardItemCarte()
                     }
@@ -59,6 +64,7 @@ struct DashBoardView: View {
             }
             .padding()
             .navigationTitle("Planning")
+            
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack {

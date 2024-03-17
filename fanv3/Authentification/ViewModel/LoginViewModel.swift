@@ -22,8 +22,8 @@ enum FetchError: Error, LocalizedError {
 class LoginViewModel: ObservableObject {
 
     
-    @Published var username: String = "cedric"
-    @Published var password: String = "smokerz91"
+    @Published var username: String = "redak"
+    @Published var password: String = "koko93500"
     @Published var errorMessage: String?
     
     /// Login via l'api

@@ -24,7 +24,7 @@ struct DashboardItemRetard: View {
                             .fontWeight(.bold)
                         Spacer()
                         Image(systemName: "exclamationmark.triangle.fill")
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color.yellow)
                     }
                     
                     

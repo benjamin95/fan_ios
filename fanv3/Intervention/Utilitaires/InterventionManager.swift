@@ -25,17 +25,17 @@ class InterventionManager: ObservableObject {
         let currentDate = Date()
         let calendar = Calendar.current
 
-        let month = calendar.component(.month, from: currentDate)
-        let year = calendar.component(.year, from: currentDate)
-        
         if let mois = mois, let annee = annee {
             
             url = "\(getAPiUrl())interventions/?date__month=\(mois)&date__year=\(annee)&ordering=-date&technicien__username=\(username!)"
+            print(url)
         }
         else{
             
-            
+            let month = calendar.component(.month, from: currentDate)
+            let year = calendar.component(.year, from: currentDate)
             url = "\(getAPiUrl())interventions/?date__month=\(month)&date__year=\(year)&ordering=-date&technicien__username=\(username!)"
+            print(url)
         }
         
         
