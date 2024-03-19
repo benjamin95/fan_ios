@@ -18,59 +18,69 @@ struct TacheListView: View {
     var body: some View {
         NavigationStack{
             
-            VStack {
-                List (viewModel.taches) { tache in
-                    VStack(alignment: .leading, spacing: 10) {
-                        
-                        
-                        
-                        
-                        HStack {
-                            NavigationLink {
-                                ClientDetail2(client: tache.client!)
-                            } label: {
-                                Text(tache.client!.nom ?? "Inconnu")
-                            }
+            if viewModel.taches.isEmpty {
+                
+                ContentUnavailableView("Pas de réinterventions a faire", systemImage: "nosign", description: Text("Aucun client trouvé"))
+            }
+            else {
+                
+                VStack {
+                    List (viewModel.taches) { tache in
+                        VStack(alignment: .leading, spacing: 10) {
                             
-                            tache.fait! ? Text("Fait le \(formatDateInFrench(dateString: tache.faitLe ?? "" ) ?? "Pas de date") ") : Text("")
+                            
+                            
+                            
+                            HStack {
+                                NavigationLink {
+                                    ClientDetail2(client: tache.client!)
+                                } label: {
+                                    Text(tache.client!.nom ?? "Inconnu")
+                                }
+                                
+                                tache.fait! ? Text("Fait le \(formatDateInFrench(dateString: tache.faitLe ?? "" ) ?? "Pas de date") ") : Text("")
+                            }
+                            Label {
+                                Text(tache.tache!)
+                            } icon: {
+                                Image(systemName: "checkmark.circle")
+                                    .foregroundColor(tache.fait! ? .green : .red) // Remplacez .red par la couleur de votre choix
+                            }
                         }
-                        Label {
-                            Text(tache.tache!)
-                        } icon: {
-                            Image(systemName: "checkmark.circle")
-                                .foregroundColor(tache.fait! ? .green : .red) // Remplacez .red par la couleur de votre choix
-                        }
-                    }
-                    .swipeActions(edge: .leading) {
-                                            Button(action: {
-                                                viewModel.editTache(tache: tache, fait: false)
-                                                presentationMode.wrappedValue.dismiss()
-                                            }) {
-                                                Image(systemName: "trash")
+                        .swipeActions(edge: .leading) {
+                                                Button(action: {
+                                                    viewModel.editTache(tache: tache, fait: false)
+                                                    presentationMode.wrappedValue.dismiss()
+                                                }) {
+                                                    Image(systemName: "trash")
+                                                }
+                                                .tint(.red)
                                             }
-                                            .tint(.red)
-                                        }
-                    .swipeActions {
-                        
-                        Button(action: {
-                            viewModel.editTache(tache: tache)
-                            presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Image(systemName: "checkmark")
+                        .swipeActions {
+                            
+                            Button(action: {
+                                viewModel.editTache(tache: tache)
+                                presentationMode.wrappedValue.dismiss()
+                            }) {
+                                Image(systemName: "checkmark")
+                            }
+                            .tint(.green)
                         }
-                        .tint(.green)
                     }
+                    .listStyle(.grouped)
+                    
+                    
                 }
-                .listStyle(.grouped)
+                
+                
                 
                 
             }
             
             
-            
-            .task {
-                viewModel.getTaches()
-            }
+        }
+        .task {
+            viewModel.getTaches()
         }
         .navigationTitle("Réinterventions")
         .navigationBarTitleDisplayMode(.inline)

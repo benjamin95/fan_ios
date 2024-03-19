@@ -69,16 +69,18 @@ struct DashBoardView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack {
                         NavigationLink {
-                            
+                            UtilisateurView()
                         } label: {
                             Image(systemName: "person.fill")
                             Text(JWT.shared.getUsername()!.capitalized)
                         }
                         .buttonStyle(.bordered)
+                        
                         Button(action: JWT.shared.logout, label: {
                             Label("Home", systemImage: "rectangle.portrait.and.arrow.right")
                             
                         }).buttonStyle(.bordered)
+                        
                     }
                 }
             }

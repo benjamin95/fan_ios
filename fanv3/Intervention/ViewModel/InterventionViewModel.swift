@@ -53,7 +53,7 @@ class InterventionViewModel: ObservableObject {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let intervention):
-                    print(intervention)
+                    //print(intervention)
                     self.isPresented = false
                 case .failure(let error):
                     var errorMessage = "Une erreur est survenue."

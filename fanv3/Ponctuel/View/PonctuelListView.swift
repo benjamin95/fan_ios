@@ -17,33 +17,40 @@ struct PonctuelListView: View {
     var body: some View {
         NavigationStack{
             
-            VStack {
-                List (viewModel.ponctuels) { ponctuel in
-                    VStack(alignment: .leading) {
-                        NavigationLink {
-                            PonctuelDetail(ponctuel: ponctuel)
-                        } label: {
-                            Image(systemName: "checkmark.circle")
-                                .foregroundColor(ponctuel.fait! ? .green : .red)
-                            Text(ponctuel.nom ?? "Pas de nom")
+            if viewModel.ponctuels.isEmpty {
+                
+                ContentUnavailableView("Pas de hors contrat a faire", systemImage: "nosign", description: Text("Aucun client trouvé"))
+            }
+            else {
+                VStack {
+                    List (viewModel.ponctuels) { ponctuel in
+                        VStack(alignment: .leading) {
+                            NavigationLink {
+                                PonctuelDetail(ponctuel: ponctuel)
+                            } label: {
+                                Image(systemName: "checkmark.circle")
+                                    .foregroundColor(ponctuel.fait! ? .green : .red)
+                                Text(ponctuel.nom ?? "Pas de nom")
+                                
+                            }
+                            
                             
                         }
-                        
-                        
                     }
+                    .listStyle(.plain)
                 }
-                .listStyle(.plain)
                 
                 
+                
+                
+                .navigationTitle("Hors contrat")
+                .navigationBarTitleDisplayMode(.inline)
             }
             
             
-            
-            .task {
-                viewModel.getTachesNonFaites()
-            }
-            .navigationTitle("Hors contrat")
-            .navigationBarTitleDisplayMode(.inline)
+        }
+        .task {
+            viewModel.getTachesNonFaites()
         }
         
     }

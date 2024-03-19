@@ -17,29 +17,46 @@ struct ClientListAFaire: View {
     var body: some View {
         NavigationStack{
             
-            VStack {
-                List(filteredClients) { client in
-                    VStack(alignment: .leading) {
-                        NavigationLink {
-                            ClientDetail2(client: client)
-                        } label: {
-                            Text(client.nom ?? "Inconnu")
+            if viewModel.clients.isEmpty {
+                
+                ContentUnavailableView("Aucun client a faire", systemImage: "exclamationmark.triangle", description: Text("Pas de client trouvé"))
+            }
+            else {
+                VStack {
+                    List(filteredClients) { client in
+                        VStack(alignment: .leading) {
+                            NavigationLink {
+                                ClientDetail2(client: client)
+                            } label: {
+                                Text(client.nom ?? "Inconnu")
+                            }
                         }
                     }
+                    .searchable(text: $searchTerm, placement: .navigationBarDrawer(displayMode: .always), prompt: "Recherche Client")
+                    .overlay {
+                        if filteredClients.isEmpty{
+                            ContentUnavailableView("Aucun client : \(searchTerm)", systemImage: "exclamationmark.triangle", description: Text("Aucun client trouvé"))
+                        }
+                        
+                    }
+                    .listStyle(.plain)
                 }
-                .searchable(text: $searchTerm, placement: .navigationBarDrawer(displayMode: .always), prompt: "Recherche Client")
-                .listStyle(.plain)
-            }
-            .task {
-                viewModel.getClientsAFaire()
-            }
-            
-            .navigationTitle("Clients a finir")
-            .navigationBarTitleDisplayMode(.inline)
-            .alert(isPresented: $viewModel.showAlert) {
-                Alert(title: Text("Erreur"), message: Text(viewModel.errorMessage!), dismissButton: .default(Text("OK")))
+                .task {
+                    
+                }
+                
+                .navigationTitle("Clients a finir")
+                .navigationBarTitleDisplayMode(.inline)
+                .alert(isPresented: $viewModel.showAlert) {
+                    Alert(title: Text("Erreur"), message: Text(viewModel.errorMessage!), dismissButton: .default(Text("OK")))
+                }
             }
             
+           
+            
+        }
+        .task {
+            viewModel.getClientsAFaire()
         }
     }
     var filteredClients: [Client] {

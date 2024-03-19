@@ -9,10 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
 
-    //@StateObject private var vm = CarteViewModel()
-    
     var body: some View {
-        RootView().environmentObject(JWT.shared)//.environmentObject(vm)
+        RootView().environmentObject(JWT.shared)
     }
 }
 

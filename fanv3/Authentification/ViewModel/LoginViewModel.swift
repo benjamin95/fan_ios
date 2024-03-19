@@ -38,7 +38,7 @@ class LoginViewModel: ObservableObject {
             request.httpBody = requestData
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             let (data, _) = try await URLSession.shared.data(for: request)
-            print(data)
+            //print(data)
             if let loginResponse = try? JSONDecoder().decode(LoginResponse.self, from: data) {
                 
                     JWT.shared.setKeychain(accessToken: loginResponse.access, username: self.username)

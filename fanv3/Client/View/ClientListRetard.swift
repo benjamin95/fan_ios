@@ -17,33 +17,45 @@ struct ClientListRetard: View {
     var body: some View {
         NavigationStack{
             
-            VStack {
-                List(filteredClients) { client in
-                    VStack(alignment: .leading) {
-                        NavigationLink {
-                            ClientDetail2(client: client)
-                        } label: {
-                            Text(client.nom ?? "Inconnu")
+            
+            if filteredClients.isEmpty {
+                
+                ContentUnavailableView("Pas de retard", systemImage: "exclamationmark.triangle", description: Text("Aucun retard pour ce mois"))
+            }
+            else {
+                VStack {
+                    List(filteredClients) { client in
+                        VStack(alignment: .leading) {
+                            NavigationLink {
+                                ClientDetail2(client: client)
+                            } label: {
+                                Text(client.nom ?? "Inconnu")
+                            }
                         }
                     }
+                    .searchable(text: $searchTerm, placement: .navigationBarDrawer(displayMode: .always), prompt: "Recherche Client")
+                    
+                    .overlay {
+                        ContentUnavailableView.search(text: searchTerm)
+                    }
+                    .listStyle(.plain)
                 }
-                .searchable(text: $searchTerm, placement: .navigationBarDrawer(displayMode: .always), prompt: "Recherche Client")
-                .listStyle(.plain)
-            }
-            .task {
-                viewModel.getClientsRetard()
-                let currentDate = Date()
+                .task {
+                    viewModel.getClientsRetard()
+                    let currentDate = Date()
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "MMMM YYYY"
+                    moisEnCours = dateFormatter.string(from: currentDate)
+                }
                 
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "MMMM YYYY"
-                moisEnCours = dateFormatter.string(from: currentDate)
+                .navigationTitle("Clients en retard")
+                .navigationBarTitleDisplayMode(.inline)
+                .alert(isPresented: $viewModel.showAlert) {
+                    Alert(title: Text("Erreur"), message: Text(viewModel.errorMessage!), dismissButton: .default(Text("OK")))
+                }
             }
             
-            .navigationTitle("Clients en retard")
-            .navigationBarTitleDisplayMode(.inline)
-            .alert(isPresented: $viewModel.showAlert) {
-                Alert(title: Text("Erreur"), message: Text(viewModel.errorMessage!), dismissButton: .default(Text("OK")))
-            }
             
         }
     }
