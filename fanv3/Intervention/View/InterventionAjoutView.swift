@@ -85,7 +85,11 @@ struct InterventionAjoutView: View {
     @StateObject var viewModel = InterventionViewModel()
     
     @State private var date: Date = Date()
-    @State private var note: String = "RAS"
+    @State private var note: String = """
+        Dératisation avec traçabilité
+        Micro consommation des poisons
+        Renouvellement poisons + renfort plaques de glues
+        """
     @State private var typeInterventionIndex = 1
     let typeInterventionOptions = [ "Mise en place", "Suivi", "Reprise"]
     

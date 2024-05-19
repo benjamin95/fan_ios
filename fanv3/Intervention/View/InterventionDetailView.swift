@@ -9,11 +9,10 @@ import SwiftUI
 
 struct InterventionDetailView: View {
     
-    var intervention : Intervention?
+    var intervention : InterventionNom?
     
     var body: some View {
         Text((intervention?.date) ?? "2024-02-01")
-        Text(convertIntToString(intervention?.client ?? 1)!)
         Text(convertIntToString(intervention?.technicien ?? 1)!)
         Text(intervention?.note ?? "PAs de note")
     }

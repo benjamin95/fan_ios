@@ -15,3 +15,12 @@ struct Intervention: Codable, Hashable, Identifiable {
     let client: Int?
     let id: Int
 }
+
+struct InterventionNom: Codable, Hashable, Identifiable {
+    let date: String?
+    let note: String?
+    let typeIntervention: String?
+    let technicien: Int?
+    let client: String?
+    let id: Int
+}

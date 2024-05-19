@@ -18,6 +18,58 @@ class InterventionManager: ObservableObject {
     }
     
     
+    func fetchInterventionsNomParMois(mois: String? = nil, annee: String? = nil ,  completion: @escaping (Result<[InterventionNom], APIErrorPost>) -> Void){
+        
+        var url:String
+        let username = JWT.shared.getUsername()
+        let currentDate = Date()
+        let calendar = Calendar.current
+
+        if let mois = mois, let annee = annee {
+            
+            url = "\(getAPiUrl())interventionsNom/?date__month=\(mois)&date__year=\(annee)&ordering=-date&technicien__username=\(username!)"
+            print(url)
+        }
+        else{
+            
+            let month = calendar.component(.month, from: currentDate)
+            let year = calendar.component(.year, from: currentDate)
+            url = "\(getAPiUrl())interventionsNom/?date__month=\(month)&date__year=\(year)&ordering=-date&technicien__username=\(username!)"
+            print(url)
+        }
+        
+        
+        
+        let apiURL = URL(string: url)!
+        var request = URLRequest(url: apiURL)
+        request.addValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(.serverError(error.localizedDescription)))
+                return
+            }
+            guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
+                completion(.failure(.invalidResponse))
+                return
+            }
+            guard let data = data else {
+                completion(.failure(.dataMissing))
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let interventions = try decoder.decode([InterventionNom].self, from: data)
+                completion(.success(interventions))
+            } catch {
+                completion(.failure(.decodingError))
+            }
+        }
+        task.resume()
+    }
+    
+    
+    
     func fetchInterventionsParMois(mois: String? = nil, annee: String? = nil ,  completion: @escaping (Result<[Intervention], APIErrorPost>) -> Void){
         
         var url:String

@@ -42,7 +42,7 @@ struct ClientDetail2: View {
                     
                         LabeledContent("Contact", value: client.contact ?? "Inconnu")
                         LabeledContent("Dérniére intervention", value: formatDateInFrench(dateString: (client.derniereInter)!) ?? "Inconnu")
-                        LabeledContent("Prochaine intervention", value: formatDateInFrench(dateString: (client.prochaineInter)!) ?? "Inconnu")
+                        LabeledContent("Prochaine intervention", value: formatDateInFrench(dateString: (client.prochaineInter) ?? "2024") ?? "Inconnu")
                     }
                     
                 }
@@ -123,6 +123,6 @@ struct ClientDetail2: View {
             prochaineInter: "2023-11-14",
             lat: "48.8705651",
             lng: "2.3886057",
-            interventions: [Intervention(date: "TEst", note: "TEst", typeIntervention: "TEst", technicien: 3, client: 3, id: 1)]
+            interventions: [Intervention(date: "TEst", note: "TEst", typeIntervention: "TEst", technicien: 3, client: 1, id: 1)]
             ))
 }

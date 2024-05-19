@@ -82,7 +82,6 @@ class ClientManager {
         }
         
         guard let apiURL = URL(string: "\(getAPiUrl())clients/?ordering=derniere_inter&prochaine_inter__month=\(month)&prochaine_inter__year=\(year)&technicien__username=\(username)") else {
-            
             print("URL invalide")
             return
         }
@@ -139,6 +138,8 @@ class ClientManager {
             return
         }
         
+        print(apiURL)
+        
         var request = URLRequest(url: apiURL)
         
         
@@ -160,6 +161,7 @@ class ClientManager {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let clients = try decoder.decode([Client].self, from: data)
+                print(clients)
                 completion(.success(clients))
             } catch {
                 completion(.failure(.decodingError))

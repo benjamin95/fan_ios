@@ -17,12 +17,11 @@ struct ClientListRetard: View {
     var body: some View {
         NavigationStack{
             
-            
-            if filteredClients.isEmpty {
+            if viewModel.clients.isEmpty {
                 
-                ContentUnavailableView("Pas de retard", systemImage: "exclamationmark.triangle", description: Text("Aucun retard pour ce mois"))
+                ContentUnavailableView("Super 😎 pas de retard", systemImage: "figure.cooldown", description: Text("Bravo !"))
             }
-            else {
+            else{
                 VStack {
                     List(filteredClients) { client in
                         VStack(alignment: .leading) {
@@ -34,20 +33,16 @@ struct ClientListRetard: View {
                         }
                     }
                     .searchable(text: $searchTerm, placement: .navigationBarDrawer(displayMode: .always), prompt: "Recherche Client")
-                    
                     .overlay {
-                        ContentUnavailableView.search(text: searchTerm)
+                        if filteredClients.isEmpty{
+                            ContentUnavailableView("Pas de retard", systemImage: "exclamationmark.triangle", description: Text("Aucun retard trouvé"))
+                        }
+                        
                     }
+                    
                     .listStyle(.plain)
                 }
-                .task {
-                    viewModel.getClientsRetard()
-                    let currentDate = Date()
-                    
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "MMMM YYYY"
-                    moisEnCours = dateFormatter.string(from: currentDate)
-                }
+                
                 
                 .navigationTitle("Clients en retard")
                 .navigationBarTitleDisplayMode(.inline)
@@ -55,8 +50,14 @@ struct ClientListRetard: View {
                     Alert(title: Text("Erreur"), message: Text(viewModel.errorMessage!), dismissButton: .default(Text("OK")))
                 }
             }
+        }
+        .task {
+            viewModel.getClientsRetard()
+            let currentDate = Date()
             
-            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMMM YYYY"
+            moisEnCours = dateFormatter.string(from: currentDate)
         }
     }
     var filteredClients: [Client] {

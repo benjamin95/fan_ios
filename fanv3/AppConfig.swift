@@ -8,7 +8,7 @@
 import Foundation
 
 struct AppConfig {
-    static let apiURLdev:String = "https://fan.b-tech.ovh/api/v2/"
+    static let apiURLdev:String = "http://192.168.1.171:8000/api/v2/"
     static let apiURLprod:String = "https://fandev.taxis-bretigny.fr/api/v2/"
     static let modeProd:Bool = false
 }

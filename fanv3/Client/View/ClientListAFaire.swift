@@ -41,9 +41,6 @@ struct ClientListAFaire: View {
                     }
                     .listStyle(.plain)
                 }
-                .task {
-                    
-                }
                 
                 .navigationTitle("Clients a finir")
                 .navigationBarTitleDisplayMode(.inline)

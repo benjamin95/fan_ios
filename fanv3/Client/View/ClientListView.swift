@@ -55,7 +55,7 @@ struct ClientListView: View {
             
         }
         .task {
-            viewModel.getClientsAFaire()
+            viewModel.getClients()
         }
     }
     var filteredClients: [Client] {

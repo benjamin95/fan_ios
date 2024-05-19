@@ -155,7 +155,7 @@ struct ClientDetail: View {
 
 struct ClientDetail_Previews: PreviewProvider {
     static var previews: some View {
-        let intervention = Intervention(date: "TEst", note: "TEst", typeIntervention: "TEst", technicien: 3, client: 3, id: 1)
+        let intervention = Intervention(date: "TEst", note: "TEst", typeIntervention: "TEst", technicien: 3, client: 1, id: 1)
         
         let client = Client(
             id: 574,

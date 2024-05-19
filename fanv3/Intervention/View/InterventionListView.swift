@@ -15,32 +15,55 @@ struct InterventionListView: View {
     var body: some View {
         NavigationStack{
             
-            VStack {
-                List(viewModel.interventions) { intervention in
-                    VStack(alignment: .leading) {
-                        NavigationLink {
-                            InterventionDetailView(intervention: intervention)
-                        } label: {
-                            Text(convertStringToDate(intervention.date!, format: "yyyy-MM-dd")!, style: .date)
-                                .font(.subheadline)
-                            Text(intervention.note!)
-                            Text(String(intervention.client!))
+            if viewModel.interventionsNom.isEmpty {
+                
+                ContentUnavailableView("Aucune intervention ce mois", systemImage: "nosign", description: Text("Pas d'intervention trouvé"))
+            }
+            else {
+                    List(viewModel.interventionsNom) { intervention in
+//                        NavigationLink (destination: InterventionDetailView(intervention: intervention))  {
+                        
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text(String(intervention.client!))
+                                    Spacer()
+                                    Text(convertStringToDate(intervention.date!, format: "yyyy-MM-dd")!, style: .date)
+                                        .font(.subheadline)
+                                        .padding(3)
+                                        .foregroundColor(.white)
+                                        .background(Color.blue)
+                                        .font(.caption)
+                                        .overlay(
+                                                  RoundedRectangle(cornerRadius: 5)
+                                                        .stroke(Color.gray, lineWidth: 2)
+                                                        )
+                                                        .cornerRadius(5)
+                                                        
+                                }
+                                
+//                                Text(intervention.note!)
+//                                    .padding(.top, 10)
+                                
+                                
+                                
+                            }
                         }
-                    }
+//                    }
+                    .listStyle(.plain)
+              
+                
+                
+                .navigationTitle("\(viewModel.interventionsNom.count) Interventions ce mois")
+                
+                .navigationBarTitleDisplayMode(.inline)
+                .alert(isPresented: $viewModel.showAlert) {
+                    Alert(title: Text("Erreur"), message: Text(viewModel.errorMessage!), dismissButton: .default(Text("OK")))
                 }
-                .listStyle(.plain)
-            }
-            .task {
-                viewModel.getInterventionsParMois()
             }
             
-            .navigationTitle("\(viewModel.interventions.count) Interventions ce mois")
-            
-            .navigationBarTitleDisplayMode(.inline)
-            .alert(isPresented: $viewModel.showAlert) {
-                Alert(title: Text("Erreur"), message: Text(viewModel.errorMessage!), dismissButton: .default(Text("OK")))
-            }
-            
+        }
+        .task {
+            viewModel.getInterventionsNomParMois()
         }
     }
 }
