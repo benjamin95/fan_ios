@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DashBoardView: View {
     
+    
+    
     var body: some View {
         NavigationStack{
             VStack(spacing: 20){
@@ -62,6 +64,10 @@ struct DashBoardView: View {
                 }
                 Spacer()
             }
+            .onAppear {
+                            // Code à exécuter lorsque la vue apparaît
+                JWT.shared.checkTokenStatus()
+            }
             .padding()
             .navigationTitle("Planning")
             
@@ -69,10 +75,10 @@ struct DashBoardView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack {
                         NavigationLink {
-                            UtilisateurView()
+                            //UtilisateurView()
                         } label: {
                             Image(systemName: "person.fill")
-                            Text(JWT.shared.getUsername()!.capitalized)
+                            Text(JWT.shared.getUsername()?.capitalized ?? "Inconnu")
                         }
                         .buttonStyle(.bordered)
                         

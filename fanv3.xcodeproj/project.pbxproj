@@ -11,8 +11,9 @@
 		432B6FA92B3DD85D00185225 /* PonctuelDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B6FA82B3DD85D00185225 /* PonctuelDetail.swift */; };
 		432B6FAB2B3DDA9800185225 /* CercleInitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B6FAA2B3DDA9800185225 /* CercleInitial.swift */; };
 		432B6FAD2B3DE97E00185225 /* DashboardItemPonctuels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B6FAC2B3DE97E00185225 /* DashboardItemPonctuels.swift */; };
+		4346E3102BFB1E92007A4E5E /* TextGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4346E30F2BFB1E92007A4E5E /* TextGeneratorView.swift */; };
 		4376F5082B748D130057577E /* NavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4376F5072B748D130057577E /* NavButton.swift */; };
-		439C01932BF512CA008877FA /* NoteIntervention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439C01922BF512CA008877FA /* NoteIntervention.swift */; };
+		439C01932BF512CA008877FA /* InterventionNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439C01922BF512CA008877FA /* InterventionNote.swift */; };
 		43B09F272B6C24E60074AED9 /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B09F262B6C24E60074AED9 /* Convert.swift */; };
 		43BC310C2B3B42E300A14E6F /* fanv3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC310B2B3B42E300A14E6F /* fanv3App.swift */; };
 		43BC31102B3B42E400A14E6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43BC310F2B3B42E400A14E6F /* Assets.xcassets */; };
@@ -55,7 +56,6 @@
 		43BC31902B3B4D2600A14E6F /* TacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC31672B3B4D2600A14E6F /* TacheManager.swift */; };
 		43BC31912B3B4D2600A14E6F /* TacheModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC31692B3B4D2600A14E6F /* TacheModel.swift */; };
 		43BC31922B3B4D2600A14E6F /* TacheListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC316B2B3B4D2600A14E6F /* TacheListView.swift */; };
-		43BC31932B3B4D2600A14E6F /* TacheTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC316C2B3B4D2600A14E6F /* TacheTabView.swift */; };
 		43BC31942B3B4D2600A14E6F /* InterventionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC316F2B3B4D2600A14E6F /* InterventionViewModel.swift */; };
 		43BC31952B3B4D2600A14E6F /* InterventionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC31712B3B4D2600A14E6F /* InterventionManager.swift */; };
 		43BC31962B3B4D2600A14E6F /* InterventionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BC31732B3B4D2600A14E6F /* InterventionModel.swift */; };
@@ -80,8 +80,9 @@
 		432B6FA82B3DD85D00185225 /* PonctuelDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PonctuelDetail.swift; sourceTree = "<group>"; };
 		432B6FAA2B3DDA9800185225 /* CercleInitial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CercleInitial.swift; sourceTree = "<group>"; };
 		432B6FAC2B3DE97E00185225 /* DashboardItemPonctuels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardItemPonctuels.swift; sourceTree = "<group>"; };
+		4346E30F2BFB1E92007A4E5E /* TextGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGeneratorView.swift; sourceTree = "<group>"; };
 		4376F5072B748D130057577E /* NavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButton.swift; sourceTree = "<group>"; };
-		439C01922BF512CA008877FA /* NoteIntervention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteIntervention.swift; sourceTree = "<group>"; };
+		439C01922BF512CA008877FA /* InterventionNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterventionNote.swift; sourceTree = "<group>"; };
 		43B09F262B6C24E60074AED9 /* Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
 		43BC31082B3B42E300A14E6F /* fanv3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fanv3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43BC310B2B3B42E300A14E6F /* fanv3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fanv3App.swift; sourceTree = "<group>"; };
@@ -123,7 +124,6 @@
 		43BC31672B3B4D2600A14E6F /* TacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TacheManager.swift; sourceTree = "<group>"; };
 		43BC31692B3B4D2600A14E6F /* TacheModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TacheModel.swift; sourceTree = "<group>"; };
 		43BC316B2B3B4D2600A14E6F /* TacheListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TacheListView.swift; sourceTree = "<group>"; };
-		43BC316C2B3B4D2600A14E6F /* TacheTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TacheTabView.swift; sourceTree = "<group>"; };
 		43BC316F2B3B4D2600A14E6F /* InterventionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterventionViewModel.swift; sourceTree = "<group>"; };
 		43BC31712B3B4D2600A14E6F /* InterventionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterventionManager.swift; sourceTree = "<group>"; };
 		43BC31732B3B4D2600A14E6F /* InterventionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterventionModel.swift; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 		439C01912BF5128D008877FA /* NoteIntervention */ = {
 			isa = PBXGroup;
 			children = (
-				439C01922BF512CA008877FA /* NoteIntervention.swift */,
+				439C01922BF512CA008877FA /* InterventionNote.swift */,
 			);
 			path = NoteIntervention;
 			sourceTree = "<group>";
@@ -430,7 +430,6 @@
 			isa = PBXGroup;
 			children = (
 				43BC316B2B3B4D2600A14E6F /* TacheListView.swift */,
-				43BC316C2B3B4D2600A14E6F /* TacheTabView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -477,6 +476,7 @@
 				43BC31752B3B4D2600A14E6F /* InterventionAjoutView.swift */,
 				43BC31762B3B4D2600A14E6F /* InterventionListView.swift */,
 				43115D642B6C23A1005B2BE5 /* InterventionDetailView.swift */,
+				4346E30F2BFB1E92007A4E5E /* TextGeneratorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -609,7 +609,7 @@
 				432B6FAD2B3DE97E00185225 /* DashboardItemPonctuels.swift in Sources */,
 				43BC31302B3B4A6D00A14E6F /* JWT.swift in Sources */,
 				43EE9FA92B49BCFA003823A1 /* CountManager.swift in Sources */,
-				439C01932BF512CA008877FA /* NoteIntervention.swift in Sources */,
+				439C01932BF512CA008877FA /* InterventionNote.swift in Sources */,
 				43BC31882B3B4D2600A14E6F /* Date.swift in Sources */,
 				43BC318F2B3B4D2600A14E6F /* TacheViewModel.swift in Sources */,
 				43BC313B2B3B4C9D00A14E6F /* Logged.swift in Sources */,
@@ -621,7 +621,6 @@
 				43BC31352B3B4A6D00A14E6F /* UtilisateurView.swift in Sources */,
 				43BC31892B3B4D2600A14E6F /* DashboardItemAFaire.swift in Sources */,
 				43BC31342B3B4A6D00A14E6F /* LoginResponse.swift in Sources */,
-				43BC31932B3B4D2600A14E6F /* TacheTabView.swift in Sources */,
 				432B6FAB2B3DDA9800185225 /* CercleInitial.swift in Sources */,
 				43BC31942B3B4D2600A14E6F /* InterventionViewModel.swift in Sources */,
 				43115D652B6C23A1005B2BE5 /* InterventionDetailView.swift in Sources */,
@@ -654,6 +653,7 @@
 				43EE9FA72B49B00C003823A1 /* DashboardTabView.swift in Sources */,
 				43BC31822B3B4D2600A14E6F /* CarteClientModel.swift in Sources */,
 				43BC317A2B3B4D2600A14E6F /* AlertItem.swift in Sources */,
+				4346E3102BFB1E92007A4E5E /* TextGeneratorView.swift in Sources */,
 				43BC31362B3B4A6D00A14E6F /* LoginView.swift in Sources */,
 				43BC31812B3B4D2600A14E6F /* CarteViewModel.swift in Sources */,
 				43BC313D2B3B4CDB00A14E6F /* AppConfig.swift in Sources */,

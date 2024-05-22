@@ -24,26 +24,32 @@ struct TacheListView: View {
             }
             else {
                 
-                VStack {
+                
                     List (viewModel.taches) { tache in
                         VStack(alignment: .leading, spacing: 10) {
                             
                             
-                            
-                            
-                            HStack {
                                 NavigationLink {
-                                    ClientDetail2(client: tache.client!)
+                                    
+                                   ClientDetail2(client: tache.client!)
+                                    
                                 } label: {
-                                    Text(tache.client!.nom ?? "Inconnu")
-                                }
+                                    HStack {
+                                        Text(tache.client!.nom ?? "Inconnu")
+                                        }
                                 
-                                tache.fait! ? Text("Fait le \(formatDateInFrench(dateString: tache.faitLe ?? "" ) ?? "Pas de date") ") : Text("")
+                                
+                                
                             }
                             Label {
-                                Text(tache.tache!)
+                                VStack(alignment : .leading){
+                                    Text(tache.tache!)
+                                    Spacer()
+                                    tache.fait! ? Text("Fait le \(formatDateInFrench(dateString: tache.faitLe ?? "" ) ?? "Pas de date") ") : Text("")
+                                    Spacer()
+                                }
                             } icon: {
-                                Image(systemName: "checkmark.circle")
+                                Image(systemName: tache.fait! ? "checkmark.circle" : "xmark.circle")
                                     .foregroundColor(tache.fait! ? .green : .red) // Remplacez .red par la couleur de votre choix
                             }
                         }
@@ -70,7 +76,7 @@ struct TacheListView: View {
                     .listStyle(.grouped)
                     
                     
-                }
+                
                 
                 
                 

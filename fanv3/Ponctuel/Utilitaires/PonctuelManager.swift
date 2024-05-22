@@ -9,18 +9,16 @@ import Foundation
 
 class PonctuelManager {
     
-    private let jwtToken: String
+    
     static let shared = PonctuelManager()
     
-    init() {
-        guard let accessToken = JWT.shared.getAccessToken() else {
-            fatalError("Token d'accès non disponible")
-        }
-        self.jwtToken = accessToken
-        
-    }
     
     func fetchPonctuelNonFait(completion: @escaping (Result<[Ponctuel], APIError>) -> Void) {
+        
+        guard let jwtToken = JWT.shared.getAccessToken() else {
+            print("JWT Indisponible")
+            return
+        }
         
         guard let userId = JWT.shared.getUserId() else {
             print("Userid non disponible")
@@ -55,7 +53,6 @@ class PonctuelManager {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let ponctuels = try decoder.decode([Ponctuel].self, from: data)
-                print(ponctuels)
                 completion(.success(ponctuels))
             } catch {
                 completion(.failure(.decodingError))
@@ -71,6 +68,10 @@ class PonctuelManager {
         
         guard let apiURL = URL(string: "\(getAPiUrl())taches/\(id)/") else {
             print("URL invalide")
+            return
+        }
+        guard let jwtToken = JWT.shared.getAccessToken() else {
+            print("JWT Indisponible")
             return
         }
         
@@ -128,6 +129,11 @@ class PonctuelManager {
     
     
     func fetchTaches(completion: @escaping (Result<[Tache], APIError>) -> Void) {
+        
+        guard let jwtToken = JWT.shared.getAccessToken() else {
+            print("JWT Indisponible")
+            return
+        }
         
         guard let username = JWT.shared.getUsername() else {
             print("Nom d'utilisateur non disponible")

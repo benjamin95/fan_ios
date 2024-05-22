@@ -12,22 +12,21 @@ import Foundation
 import KeychainSwift
 import JWTDecode
 
-
-
 class JWT: ObservableObject {
     
     static let shared: JWT = JWT()
     private let keychain: KeychainSwift = KeychainSwift()
-    
     @Published var loggedIn: Bool = false
+    @Published var tokenExpired: Bool = false
     
-     init() {
-         print("Init JWT Auth")
+    init() {
+        print("Init JWT Auth")
         loggedIn = hasAccessToken()
+        print("LoggedIn : \(loggedIn)")
+        checkTokenStatus()
     }
     
     func getJwtToken() -> JwtToken {
-        
         return JwtToken(
             accessToken: keychain.get("jwt"),
             username: keychain.get("username"),
@@ -38,11 +37,9 @@ class JWT: ObservableObject {
     }
     
     func setKeychain(accessToken: String, username: String) {
-        
         do {
             let jwt = try decode(jwt: accessToken)
             let body = jwt.body
-            print("Corps du JWT : \(body)")
             let username = username
             let user_id = String(describing: body["user_id"]!)
             let dateObtention = String(describing: body["iat"]!)
@@ -59,10 +56,8 @@ class JWT: ObservableObject {
                 self.loggedIn = true
             }
         } catch {
-            print("Erreur lors de la décodage du JWT : \(error)")
+            print("Erreur lors de la décodage du JWT : \(error.localizedDescription)")
         }
-        
-        
     }
 
     func hasAccessToken() -> Bool {
@@ -85,6 +80,50 @@ class JWT: ObservableObject {
         keychain.clear()
         DispatchQueue.main.async {
             self.loggedIn = false
+        }
+    }
+    
+    func checkTokenStatus() {
+        if isTokenExpired() {
+            self.logout()
+            print("Expired", true)
+        } else {
+            self.loggedIn = true
+            print("Expired", false)
+        }
+    }
+    
+    func isTokenExpired() -> Bool {
+        guard let expirationString = keychain.get("dateExpiration"),
+              let expirationTime = Double(expirationString) else {
+            return true
+        }
+        let expirationDate = Date(timeIntervalSince1970: expirationTime)
+        
+        print(expirationDate)
+        return expirationDate <= Date()
+    }
+    
+    func refreshToken() async throws {
+        guard let refreshToken = keychain.get("refreshToken") else {
+            throw FetchError.decodingError
+        }
+        
+        let url = URL(string: "\(getAPiUrl())token/refresh/")!
+        let tokenRequest = TokenRequest(token: refreshToken)
+        let requestData = try JSONEncoder().encode(tokenRequest)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = requestData
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let (data, _) = try await URLSession.shared.data(for: request)
+        
+        if let loginResponse = try? JSONDecoder().decode(LoginResponse.self, from: data) {
+            setKeychain(accessToken: loginResponse.access, username: getUsername() ?? "")
+        } else {
+            throw FetchError.decodingError
         }
     }
     

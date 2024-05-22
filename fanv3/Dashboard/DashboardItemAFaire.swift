@@ -26,8 +26,9 @@ struct DashboardItemAFaire: View {
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                         Spacer()
-                        Image(systemName: "exclamationmark.triangle.fill")
-                            .foregroundColor(Color.yellow)
+                        Image(systemName: "doc.badge.clock.fill")
+                            .foregroundColor(Color.white)
+                            .font(.title)
                     }
                     
                     Text(String(viewModel.clients.count))

@@ -22,8 +22,6 @@ class InterventionViewModel: ObservableObject {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let interventions):
-                    print("intre")
-                    print(interventions)
                     self.interventionsNom = interventions
                 case .failure(let error):
                     var errorMessage = "Une erreur est survenue."
@@ -57,8 +55,6 @@ class InterventionViewModel: ObservableObject {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let interventions):
-                    print("intre")
-                    print(interventions)
                     self.interventions = interventions
                 case .failure(let error):
                     var errorMessage = "Une erreur est survenue."
@@ -90,7 +86,6 @@ class InterventionViewModel: ObservableObject {
             DispatchQueue.main.async {
                 switch result {
                 case .success(_):
-                    //print(intervention)
                     self.isPresented = false
                 case .failure(let error):
                     var errorMessage = "Une erreur est survenue."

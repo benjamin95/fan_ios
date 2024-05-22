@@ -26,6 +26,7 @@ struct DashboardItemClients: View {
                         Spacer()
                         Image(systemName: "person.3.sequence.fill")
                             .foregroundColor(Color.green)
+                            .font(.title)
                     }
                     
                     Text(String(viewModel.clients.count))

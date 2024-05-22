@@ -24,6 +24,7 @@ struct DashboardItemPonctuels: View {
                         Spacer()
                         Image(systemName: "list.bullet.clipboard.fill")
                             .foregroundColor(Color.green)
+                            .font(.title)
                     }
                 }
                 

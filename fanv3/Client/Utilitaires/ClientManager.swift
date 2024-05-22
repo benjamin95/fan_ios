@@ -14,20 +14,17 @@ struct Total: Codable, Hashable {
 
 class ClientManager {
     
-    private var jwtToken: String
     static let shared = ClientManager()
     
-    init() {
+    
+    func fetchClients(completion: @escaping (Result<[Client], APIError>) -> Void) {
         
-        self.jwtToken = ""
         guard let accessToken = JWT.shared.getAccessToken() else {
             print("JWT Indisponible")
             return
         }
-        self.jwtToken = accessToken
-    }
-    
-    func fetchClients(completion: @escaping (Result<[Client], APIError>) -> Void) {
+        
+        print("FetchClient")
         
         guard let username = JWT.shared.getUsername() else {
             print("Nom d'utilisateur non disponible")
@@ -40,7 +37,7 @@ class ClientManager {
         }
         
         var request = URLRequest(url: apiURL)
-        request.addValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(.serverError(error.localizedDescription)))
@@ -73,7 +70,10 @@ class ClientManager {
         let month = calendar.component(.month, from: currentDate)
         let year = calendar.component(.year, from: currentDate)
         
-        
+        guard let accessToken = JWT.shared.getAccessToken() else {
+            print("JWT Indisponible")
+            return
+        }
         
         guard let username = JWT.shared.getUsername() else {
             
@@ -87,7 +87,7 @@ class ClientManager {
         }
         
         var request = URLRequest(url: apiURL)
-        request.addValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(.serverError(error.localizedDescription)))
@@ -115,6 +115,11 @@ class ClientManager {
     
     func fetchClientsRetard(completion: @escaping (Result<[Client], APIError>) -> Void) {
         
+        guard let accessToken = JWT.shared.getAccessToken() else {
+            print("JWT Indisponible")
+            return
+        }
+        
         guard let username = JWT.shared.getUsername() else {
             
             print("Nom d'utilisateur non disponible")
@@ -138,12 +143,10 @@ class ClientManager {
             return
         }
         
-        print(apiURL)
-        
         var request = URLRequest(url: apiURL)
         
         
-        request.addValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(.serverError(error.localizedDescription)))
@@ -161,7 +164,6 @@ class ClientManager {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let clients = try decoder.decode([Client].self, from: data)
-                print(clients)
                 completion(.success(clients))
             } catch {
                 completion(.failure(.decodingError))

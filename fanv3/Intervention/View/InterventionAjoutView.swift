@@ -85,11 +85,7 @@ struct InterventionAjoutView: View {
     @StateObject var viewModel = InterventionViewModel()
     
     @State private var date: Date = Date()
-    @State private var note: String = """
-        Dératisation avec traçabilité
-        Micro consommation des poisons
-        Renouvellement poisons + renfort plaques de glues
-        """
+    @State private var note: String = ""
     @State private var typeInterventionIndex = 1
     let typeInterventionOptions = [ "Mise en place", "Suivi", "Reprise"]
     
@@ -109,7 +105,7 @@ struct InterventionAjoutView: View {
                 Section(header: Text("Détails de l'intervention")) {
                     DatePicker("Date", selection: $date, displayedComponents: .date)
                         .datePickerStyle(.automatic)
-                    TextEditor(text: $note).frame(height: 100)
+                    
                     Picker(selection: $typeInterventionIndex, label: Text("Type Intervention")) {
                         ForEach(0 ..< typeInterventionOptions.count, id: \.self) {
                             Text(self.typeInterventionOptions[$0])
@@ -130,6 +126,7 @@ struct InterventionAjoutView: View {
                                 }
                         
                             }
+                    TextGeneratorView(note: $note)
                 }
             }
             HStack{

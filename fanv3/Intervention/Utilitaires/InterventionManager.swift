@@ -10,32 +10,34 @@ import SwiftUI
 
 class InterventionManager: ObservableObject {
     
-    private let jwtToken: String
-    static let shared = InterventionManager()
     
-    init() {
-        self.jwtToken = JWT.shared.getAccessToken() ?? ""
-    }
+    static let shared = InterventionManager()
     
     
     func fetchInterventionsNomParMois(mois: String? = nil, annee: String? = nil ,  completion: @escaping (Result<[InterventionNom], APIErrorPost>) -> Void){
         
+        guard let jwtToken = JWT.shared.getAccessToken() else {
+            print("JWT Indisponible")
+            return
+        }
+        
         var url:String
-        let username = JWT.shared.getUsername()
+        guard let username = JWT.shared.getUsername() else {
+            
+            print("Nom d'utilisateur non disponible")
+            return
+        }
         let currentDate = Date()
         let calendar = Calendar.current
 
         if let mois = mois, let annee = annee {
-            
-            url = "\(getAPiUrl())interventionsNom/?date__month=\(mois)&date__year=\(annee)&ordering=-date&technicien__username=\(username!)"
-            print(url)
+            url = "\(getAPiUrl())interventionsNom/?date__month=\(mois)&date__year=\(annee)&ordering=-date&technicien__username=\(username)"
         }
         else{
             
             let month = calendar.component(.month, from: currentDate)
             let year = calendar.component(.year, from: currentDate)
-            url = "\(getAPiUrl())interventionsNom/?date__month=\(month)&date__year=\(year)&ordering=-date&technicien__username=\(username!)"
-            print(url)
+            url = "\(getAPiUrl())interventionsNom/?date__month=\(month)&date__year=\(year)&ordering=-date&technicien__username=\(username)"
         }
         
         
@@ -72,22 +74,30 @@ class InterventionManager: ObservableObject {
     
     func fetchInterventionsParMois(mois: String? = nil, annee: String? = nil ,  completion: @escaping (Result<[Intervention], APIErrorPost>) -> Void){
         
+        guard let jwtToken = JWT.shared.getAccessToken() else {
+            print("JWT Indisponible")
+            return
+        }
+        
         var url:String
-        let username = JWT.shared.getUsername()
+        guard let username = JWT.shared.getUsername() else {
+            
+            print("Nom d'utilisateur non disponible")
+            return
+        }
         let currentDate = Date()
         let calendar = Calendar.current
 
         if let mois = mois, let annee = annee {
             
-            url = "\(getAPiUrl())interventions/?date__month=\(mois)&date__year=\(annee)&ordering=-date&technicien__username=\(username!)"
-            print(url)
+            url = "\(getAPiUrl())interventions/?date__month=\(mois)&date__year=\(annee)&ordering=-date&technicien__username=\(username)"
+    
         }
         else{
             
             let month = calendar.component(.month, from: currentDate)
             let year = calendar.component(.year, from: currentDate)
-            url = "\(getAPiUrl())interventions/?date__month=\(month)&date__year=\(year)&ordering=-date&technicien__username=\(username!)"
-            print(url)
+            url = "\(getAPiUrl())interventions/?date__month=\(month)&date__year=\(year)&ordering=-date&technicien__username=\(username)"
         }
         
         
@@ -122,6 +132,11 @@ class InterventionManager: ObservableObject {
     
     
     func addIntervention(intervention: Intervention, completion: @escaping (Result<Intervention, APIErrorPost>) -> Void) {
+        
+        guard let jwtToken = JWT.shared.getAccessToken() else {
+            print("JWT Indisponible")
+            return
+        }
         
         
         let apiURL = URL(string: "\(getAPiUrl())interventions/")!

@@ -26,7 +26,7 @@ struct DashboardInterventionsMois: View {
                         Spacer()
                         Image(systemName: "figure.walk.circle")
                             .foregroundColor(Color.green)
-                            .font(.largeTitle)
+                            .font(.title)
                     }
                 }
                 

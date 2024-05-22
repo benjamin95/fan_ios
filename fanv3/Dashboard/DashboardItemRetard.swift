@@ -24,7 +24,8 @@ struct DashboardItemRetard: View {
                             .fontWeight(.bold)
                         Spacer()
                         Image(systemName: "exclamationmark.triangle.fill")
-                            .foregroundColor(Color.yellow)
+                            .foregroundColor(Color.red)
+                            .font(.title)
                     }
                     
                     
@@ -38,7 +39,7 @@ struct DashboardItemRetard: View {
             }
             .padding()
         }
-        .background(Color.red)
+        .background(Color.yellow)
         .cornerRadius(15)
         .task{
             viewModel.getClientsRetard()

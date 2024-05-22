@@ -24,6 +24,7 @@ struct DashboardItemTaches: View {
                         Spacer()
                         Image(systemName: "list.bullet.clipboard.fill")
                             .foregroundColor(Color.blue)
+                            .font(.title)
                     }
                 }
                 

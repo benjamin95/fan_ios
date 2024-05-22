@@ -9,17 +9,16 @@ import Foundation
 
 class TacheManager {
     
-    private let jwtToken: String
-    static let shared = TacheManager()
     
-    init() {
-        guard let accessToken = JWT.shared.getAccessToken() else {
-            fatalError("Token d'accès non disponible")
-        }
-        self.jwtToken = accessToken
-    }
+    static let shared = TacheManager()
+
     
     func fetchTachesNonFaites(completion: @escaping (Result<[Tache], APIError>) -> Void) {
+        
+        guard let jwtToken = JWT.shared.getAccessToken() else {
+            print("JWT Indisponible")
+            return
+        }
         
         guard let username = JWT.shared.getUsername() else {
             print("Nom d'utilisateur non disponible")
@@ -52,6 +51,7 @@ class TacheManager {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let taches = try decoder.decode([Tache].self, from: data)
+                print(taches)
                 completion(.success(taches))
             } catch {
                 completion(.failure(.decodingError))
@@ -62,6 +62,10 @@ class TacheManager {
     
     func editTache(tache: Tache, fait: Bool = true ,completion: @escaping (Result<Tache, APIErrorPost>) -> Void) {
         
+        guard let jwtToken = JWT.shared.getAccessToken() else {
+            print("JWT Indisponible")
+            return
+        }
         
         guard let id = tache.id else { return }
         
@@ -124,6 +128,11 @@ class TacheManager {
     
     
     func fetchTaches(completion: @escaping (Result<[Tache], APIError>) -> Void) {
+        
+        guard let jwtToken = JWT.shared.getAccessToken() else {
+            print("JWT Indisponible")
+            return
+        }
         
         guard let username = JWT.shared.getUsername() else {
             print("Nom d'utilisateur non disponible")

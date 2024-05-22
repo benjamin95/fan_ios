@@ -22,7 +22,7 @@ struct DashboardItemCarte: View {
                         Spacer()
                         Image(systemName: "map")
                             .foregroundColor(Color.blue)
-                            .font(.largeTitle)
+                            .font(.title)
                     }
                 }
                 
