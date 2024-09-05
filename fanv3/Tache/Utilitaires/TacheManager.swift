@@ -51,7 +51,7 @@ class TacheManager {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let taches = try decoder.decode([Tache].self, from: data)
-                print(taches)
+                
                 completion(.success(taches))
             } catch {
                 completion(.failure(.decodingError))

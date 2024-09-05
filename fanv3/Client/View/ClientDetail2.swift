@@ -42,7 +42,7 @@ struct ClientDetail2: View {
                     
                         LabeledContent("Contact", value: client.contact ?? "Inconnu")
                         LabeledContent("Dérniére intervention", value: formatDateInFrench(dateString: (client.derniereInter)!) ?? "Inconnu")
-                        LabeledContent("Prochaine intervention", value: formatDateInFrench(dateString: (client.prochaineInter) ?? "2024") ?? "Inconnu")
+                        LabeledContent("Prochaine intervention", value: formatDateInFrench(dateString: (client.prochaineInter) ?? "2024") ?? "Fin de contrat")
                     }
                     
                 }

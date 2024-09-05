@@ -20,9 +20,7 @@ class JWT: ObservableObject {
     @Published var tokenExpired: Bool = false
     
     init() {
-        print("Init JWT Auth")
         loggedIn = hasAccessToken()
-        print("LoggedIn : \(loggedIn)")
         checkTokenStatus()
     }
     
@@ -86,10 +84,8 @@ class JWT: ObservableObject {
     func checkTokenStatus() {
         if isTokenExpired() {
             self.logout()
-            print("Expired", true)
         } else {
             self.loggedIn = true
-            print("Expired", false)
         }
     }
     
@@ -99,8 +95,6 @@ class JWT: ObservableObject {
             return true
         }
         let expirationDate = Date(timeIntervalSince1970: expirationTime)
-        
-        print(expirationDate)
         return expirationDate <= Date()
     }
     

@@ -24,8 +24,6 @@ class ClientManager {
             return
         }
         
-        print("FetchClient")
-        
         guard let username = JWT.shared.getUsername() else {
             print("Nom d'utilisateur non disponible")
             return

@@ -9,9 +9,9 @@
 		<string>waze</string>
 	</array>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Demnde de geolocation</string>
+	<string>Demande de geolocation</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Test app</string>
+	<string>Demande de geolocation</string>
 	<key>NSLocationAlwaysAndWhenInUsageDescription</key>
 	<string>Test app</string>
 	<key>NSLocationUsageDescription</key>
